@@ -37,4 +37,4 @@ Each command is a separate `.js` file. All of the commands are located in [./src
 
 ## Reminders
 - We highly suggest to not write your program inside [index.js](https://github.com/cifrelabs/discord-bot-template/blob/main/index.js) but instead create handlers for listeners for better organization. In our convention, we place these events in the [./src/handlers](https://github.com/cifrelabs/discord-bot-template/tree/main/src/handlers) folder (e.g. [message-create-handler.js](https://github.com/cifrelabs/discord-bot-template/blob/main/src/handlers/message-create-handler.js) and [button-handler.js](https://github.com/cifrelabs/discord-bot-template/blob/main/src/handlers/button-handler.js)).
-- The [.env](https://github.com/cifrelabs/discord-bot-template/blob/main/.env) file is not meant to be pushed to the remote repository. We added the file only for faster setup and straight-forward instruction.
+- The `.env` file is not meant to be pushed to the remote repository. We added the file only for faster setup and straight-forward instruction.
