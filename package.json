@@ -1,0 +1,34 @@
+{
+  "name": "djs-template",
+  "version": "1.0.0",
+  "description": "Creating a Discord Bot from scratch can be tedious. You may use this template to easily deploy discord bots.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node deploy-commands.js && node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cifrelabs/djs-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/builders": "^0.12.0",
+    "@discordjs/rest": "^0.3.0",
+    "cron": "^1.8.2",
+    "discord-api-types": "^0.29.0",
+    "discord-modals": "^1.3.5",
+    "discord.js": "^13.6.0",
+    "dotenv": "^16.0.0",
+    "ms": "^2.1.3",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3"
+  },
+  "bugs": {
+    "url": "https://github.com/cifrelabs/djs-template/issues"
+  },
+  "homepage": "https://github.com/cifrelabs/djs-template#readme"
+}
