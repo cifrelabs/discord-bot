@@ -3,7 +3,7 @@
  * @param {BaseInteraction} interaction 
  * @param {Client} client 
  */
-export async function buttonHandler(interaction, client) {
+export const buttonHandler = (interaction, client) => {
     const { customId } = interaction;
 
     if (customId === 'ping') {

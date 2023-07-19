@@ -2,35 +2,36 @@
 Creating a Discord Bot from scratch can be tedious. We made this template for everyone to easily create and deploy customized discord bots.
 
 ## Prerequisites
-1. **NodeJS, NPM, Git** is installed in the system.
-2. The Developer should know basic **Javascript.**
+1. [JavaScript](https://www.javascript.com/)
+2. [NodeJS and NPM](https://nodejs.org/en/download/)
+3. Node Packages:
+   - [discord.js](https://discord.js.org/)
+   - [dotenv](https://www.npmjs.com/package/dotenv)
 
 ## Quick Setup
 1. Create a `.env` file containing the following:
 ```
-# You can retrieve them at https://discord.com/developers/applications, when you create your own bot
 TOKEN = INSERT_BOT_TOKEN
 CLIENT_ID = INSERT_CLIENT_ID
 ```
 2. Run `npm i` in the terminal.
 3. Then, run `npm start`.
+4. Go to your Discord Server where you added your bot, and try to run the command `/hello`.
 
 ## Beginner Step-by-step Setup
-1. Go to https://discord.com/developers/applications and create a new Application.
-2. On the Left Menu Panel, Go to "Bot", and create a new bot.
-3. Again on the Left Menu Panel, Go to "OAuth2" → "URL Generator"
-   - Under **Scopes**, Tick the "*bot*" checkbox.
-   - Under **Scopes**, Tick the "*applications.commands*" checkbox.
-   - Under **Bot Permissions**, Tick the "*Adminstrator*" checkbox.
-4. If you scroll down, you will see a **Generated URL** section. Copy it and paste it to your web browser's address bar. This will allow you to invite your newly created bot to your own Discord Server.
-5. Going back to the program files, Create a `.env` file containing the following:
-```
-# You can retrieve them at https://discord.com/developers/applications, when you create your own bot
-TOKEN = INSERT_BOT_TOKEN
-CLIENT_ID = INSERT_CLIENT_ID
-```
-6. Run `npm start` in the terminal.
-7. Go back to your Discord Server where you added your bot, and try to run the command `/hello`.
+1. Go to the [Discord Developers Panel](https://discord.com/developers/applications) and create a new Application.
+2. After creating your app, on the Left Menu Panel, Go to **"Bot"**, and create a new bot.
+3. This will give you a new **"Token"**. Copy it and paste it to your `.env` file. Do not share this token to anyone.
+
+## Adding the Bot to your Discord Server
+1. Again on the Left Menu Panel, Go to **"OAuth2"** → "URL Generator".
+   - Under **Scopes**, Tick the `bot` and `applications.commands` checkboxes.
+   - Under **Bot Permissions**, Tick the `Adminstrator` checkbox.
+2. If you scroll down, you will see a **Generated URL** section. Copy it and paste it to your web browser's address bar. This will allow you to invite your newly created bot to your own Discord Server.
+
+## Running the Bot
+1. Run `npm start` in the terminal.
+2. Go back to your Discord Server where you added your bot, and try to run the command `/hello`.
 
 ## Creating a Command
 Each command is a separate `.js` file. All of the commands are located in [./src/commands/](https://github.com/cifrelabs/discord-bot-template/tree/main/src/commands). You can use the already-included-sample-command file, [hello.js](https://github.com/cifrelabs/discord-bot-template/blob/main/src/commands/hello.js), as a guide. To add choices to your slash command, refer to this [documentation](https://discordjs.guide/interactions/slash-commands.html#choices).

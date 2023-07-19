@@ -1,71 +1,90 @@
-import { Client, Collection, Intents } from 'discord.js';
-import { messageReactionAddHandler } from "./src/handlers/message-reaction-add-handler.js";
-import { messageCreateHandler } from "./src/handlers/message-create-handler.js";
-import { buttonHandler } from "./src/handlers/button-handler.js";
+/**
+ * @author Cifre Labs
+ * @version 2.4.0
+ */
+
+import { Client, Collection, Events, GatewayIntentBits, Partials } from 'discord.js';
+import { messageCreateListener, messageReactionAddListener } from './src/client/message.js';
+import { guildMemberAddListener, guildMemberRemoveListener } from './src/client/guild.js';
+import { interactionListener } from './src/client/interaction.js';
 import fs from 'fs';
 import 'dotenv/config';
 
+// Create a Discord Client
 const client = new Client({ 
-	intents: [ Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS ],
-	partials: [ 'MESSAGE', 'CHANNEL', 'REACTION' ]
+	intents: [ 
+		GatewayIntentBits.Guilds, 
+		GatewayIntentBits.GuildMembers, 
+		GatewayIntentBits.GuildMessages, 
+		GatewayIntentBits.GuildPresences, 
+		GatewayIntentBits.GuildMessageReactions, 
+		GatewayIntentBits.GuildInvites, 
+		GatewayIntentBits.MessageContent, 
+		GatewayIntentBits.GuildVoiceStates,
+		GatewayIntentBits.GuildScheduledEvents,
+	],
+	partials: [ 
+		Partials.Message, 
+		Partials.Channel, 
+		Partials.Reaction, 
+		Partials.User,
+		Partials.GuildScheduledEvent,
+	]
 });
 
+// Retrieve commands from the /commands folder and store to the client object
 client.commands = new Collection();
+
 const commandFiles = fs.readdirSync('./src/commands').filter(file => file.endsWith('.js'));
+
 for (const file of commandFiles) {
 	const command = await import(`./src/commands/${file}`);
 	client.commands.set(command.data.name, command);
 }
 
-client.log = message => console.log(`${client.user.tag}: ${message}`);
-
-// Listening for messages sent
-client.on('messageCreate', async message => {
-	try { await messageCreateHandler(message); }
-    catch (e) { console.error(e); }
+// Event where new members join the Server
+client.on(Events.GuildMemberAdd, async member => {
+	await guildMemberAddListener(member);
 });
 
-// Listening for reactions added
-client.on('messageReactionAdd', async (reaction, user) => {
-	try { await messageReactionAddHandler(reaction, user); } 
-	catch (e) { console.error(e); }
+// Event where members leave the Server
+client.on(Events.GuildMemberRemove, async member => {
+	await guildMemberRemoveListener(member);
 });
 
-// Listening for interactions created
-client.on('interactionCreate', async interaction => {
-	if (interaction.isCommand()) {
-        const command = client.commands.get(interaction.commandName);
-        if(!command) return;
-
-        try { await command.execute(interaction, client); }
-        catch (e) { console.error(e); }
-	}
-	if (interaction.isButton()) {
-		try { await buttonHandler(interaction, client); }
-        catch (e) { console.error(e); }
-	}
+// Main Event Listeners for All Interactions (Commands/Buttons/Modals/Menus)
+client.on(Events.InteractionCreate, async interaction => {
+	await interactionListener(interaction);
 });
 
-// Error Handling
-client.on('error', error => {
-	console.error('The bot encountered an error:', error);
+// Main Event Listeners for All Messages in the Server.
+client.on(Events.MessageCreate, async interaction => {
+	await messageCreateListener(interaction);
 });
 
-client.on('shardError', error => {
-	console.error('The bot encountered a websocket connection error:', error);
+// Main Event Listeners for All Reactions Made in the Server.
+client.on(Events.MessageReactionAdd, async interaction => {
+	await messageReactionAddListener(interaction);
 });
 
-// Uncomment Line 57 only whenever debugging connection with DiscordAPI
-// client.on('debug', console.log);
+// All Error Handling
+// client.on(`debug`, console.log)
 
-process.on('unhandledRejection', error => {
-	console.error('The bot encountered an unhandled promise rejection:', error);
+client.on(Events.Error, error => {
+	console.error(`I encountered an error:`, error);
 });
 
-client.once('ready', async bot => {
-	bot.user.setPresence({ activities: [{ name: 'You create me', type:'WATCHING' }] });
-
-    client.log(`Online and Ready as ${client.user.tag}`);
+client.on(Events.ShardError, error => {
+	console.error(`I encountered a websocket connection error:`, error);
 });
 
-client.login(process.env.TOKEN);
+process.on(`unhandledRejection`, error => {
+	console.error(`I encountered an unhandled promise rejection:`, error);
+});
+
+client.once(Events.ClientReady, async () => { 
+	console.log(`Online and Ready as ${client.user.username}`);
+});
+
+// Do not delete this line. This makes the bot online
+client.login(process.env.TOKEN).catch(e => console.error(e));

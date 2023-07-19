@@ -1,7 +1,7 @@
-import { keys } from "../keys.js";
+import { Constants } from "./constants.js";
 
-// You may use constant values from Keys
-const { mainColor } = keys.colors;
+// You may use constant values from Constans
+const { Colors } = Constants;
 
 export const successEmbed = {
     title: `Hello World!`,
@@ -13,20 +13,20 @@ export const successEmbed = {
         },
         {
             name: '_ _\n2. Share this guide to your friends!',
-            value: `You're a kind person, right? Share the gospel to your friends! Here's the link: https://github.com/cifrelabs/discord-bot-template`,
+            value: `You're a kind person, right? Share the gospel to your friends! Here's the link: https://github.com/cifrelabs/djs-template`,
         },
     ],
-    color: mainColor,
+    color: Colors.Main,
     image: {
-        "url": "https://c.tenor.com/8qtOK6_iNRMAAAAC/proud-ron-swanson.gif"
+        url: "https://c.tenor.com/8qtOK6_iNRMAAAAC/proud-ron-swanson.gif"
     }
 }
 
 export const errorEmbed = {
     title: `I don't feel so good Mr. Stark...`,
     description: `I encountered an error. Sorry 'bout that.`,
-    color: 'RED',
+    color: Colors.Error,
     image: {
-        "url": "https://c.tenor.com/EEeuMx1OE-gAAAAd/oof-iron.gif"
+        url: "https://c.tenor.com/EEeuMx1OE-gAAAAd/oof-iron.gif"
     }
 }

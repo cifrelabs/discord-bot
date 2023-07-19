@@ -1,3 +1,10 @@
+/**
+ * @author Cifre Labs
+ * @version 2.4.0
+ */
+
+/** DO NOT DELETE THE CODE BELOW */
+
 import { REST } from '@discordjs/rest';
 import { Routes } from 'discord-api-types/v9';
 import fs from 'fs';
@@ -11,16 +18,13 @@ for (const file of commandFiles) {
 	commands.push(command.data.toJSON());
 }
 
-const rest = new REST({ version: '9' }).setToken(process.env.TOKEN);
+const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
 
 (async () => {
 	try {
-		console.log('Refreshing application (/) commands');
+		console.log('Refreshing application (/) commands.');
 
-		await rest.put(
-            Routes.applicationCommands(process.env.CLIENT_ID, process.env.HANGAR_ID),
-            { body: commands }
-        );
+		await rest.put(Routes.applicationCommands(process.env.CLIENT_ID), { body: commands });
 
 		console.log('Successfully reloaded application (/) commands.');
 	}
@@ -28,4 +32,3 @@ const rest = new REST({ version: '9' }).setToken(process.env.TOKEN);
 		console.error(error);
 	}
 })();
-
