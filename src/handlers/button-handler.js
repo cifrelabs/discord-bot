@@ -1,12 +1,14 @@
 /**
  * Button Handler for your Discord Bot, placed in a separated file for organization.
- * @param {BaseInteraction} interaction 
- * @param {Client} client 
+ * @async
+ * @method
+ * @param {Object} interaction
  */
-export const buttonHandler = (interaction, client) => {
+export const buttonHandler = async (interaction) => {
     const { customId } = interaction;
 
-    if (customId === 'ping') {
-        // Add your program here
+    switch (customId) {
+        default:
+            break;
     }
 }

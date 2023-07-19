@@ -3,6 +3,28 @@ import { Constants } from "./constants.js";
 // You may use constant values from Constans
 const { Colors } = Constants;
 
+// Use this as a template for your embeds
+const embedTemplate = {
+    title: `Hello World!`,
+    description: `Something here`,
+    fields: [
+        {
+            name: `Title`,
+            value: `Value`,
+        }
+    ],
+    color: Colors.Main, // Must be Hexadecimal instead of string
+    image: {
+        url: "https://c.tenor.com/8qtOK6_iNRMAAAAC/proud-ron-swanson.gif"
+    },
+    thumbnail: {
+        url: "https://c.tenor.com/8qtOK6_iNRMAAAAC/proud-ron-swanson.gif"
+    },
+    footer: {
+        text: "Footer",
+    }
+}
+
 export const successEmbed = {
     title: `Hello World!`,
     description: '**You did it!** If you see this, you followed all of the steps perfectly and the Bot is working perfectly well!\n\nNow for your next tasks:',

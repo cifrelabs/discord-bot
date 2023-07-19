@@ -1,5 +1,8 @@
 import { AutocompleteInteraction } from "discord.js";
 import { errorHandler } from "../handlers/error-handler.js";
+import { buttonHandler } from "../handlers/button-handler.js";
+import { menuHandler } from "../handlers/menu-handler.js";
+import { modalHandler } from "../handlers/modal-handler.js";
 
 /**
  * Listens to every event where a interaction is sent or created in the Guild
