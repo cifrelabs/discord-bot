@@ -1,4 +1,4 @@
-import { Constants } from "./constants.js";
+import { Constants } from './constants.js';
 
 // You may use constant values from Constans
 const { Colors } = Constants;

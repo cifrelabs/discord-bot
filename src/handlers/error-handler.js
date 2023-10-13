@@ -1,8 +1,10 @@
-import { errorEmbed } from "../utils/embeds.js";
-import { reply } from "../utils/reply.js";
+import { errorEmbed } from '../utils/embeds.js';
+import { reply } from '../utils/reply.js';
 
 /**
  * Handles all errors that are thrown in the bot.
+ * @async
+ * @method
  * @param {Object} error - The error that was thrown
  * @param {Object} interaction - Represents a command interaction.
  */

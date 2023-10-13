@@ -7,6 +7,7 @@
  * An easy way to reply to a user's interaction with an embed.
  * @async
  * @method
+ * @param {Interaction} interaction - Represents any interaction that can be replied to.
  * @param {Array<Object>} embeds - An array of embeds to send
  * @returns {Object} - Returns the Message Object if the message was sent successfully, otherwise returns false
  */
