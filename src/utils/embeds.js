@@ -5,12 +5,12 @@ const { Colors } = Constants;
 
 // Use this as a template for your embeds
 const embedTemplate = {
-    title: `Hello World!`,
-    description: `Something here`,
+    title: `Enter Title Here`,
+    description: `Enter awesome and lengthy description here.`,
     fields: [
         {
-            name: `Title`,
-            value: `Value`,
+            name: `Some Title Here`,
+            value: `Maybe some value here.`,
         }
     ],
     color: Colors.Main, // Must be Hexadecimal instead of string
