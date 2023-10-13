@@ -1,12 +1,10 @@
 /**
  * @author Cifre Labs
- * @version 2.4.0
+ * @version 2.5.0
  */
 
 /** DO NOT DELETE THE CODE BELOW */
-
-import { REST } from '@discordjs/rest';
-import { Routes } from 'discord-api-types/v9';
+import { REST, Routes } from 'discord.js';
 import fs from 'fs';
 import 'dotenv/config';
 
