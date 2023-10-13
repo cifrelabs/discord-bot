@@ -1,12 +1,12 @@
 /**
  * @author Cifre Labs
- * @version 2.4.0
+ * @version 2.4.1
  */
 
 import { Client, Collection, Events, GatewayIntentBits, Partials } from 'discord.js';
-import { messageCreateListener, messageReactionAddListener } from './src/client/message.js';
-import { guildMemberAddListener, guildMemberRemoveListener } from './src/client/guild.js';
-import { interactionListener } from './src/client/interaction.js';
+import { messageCreateListener, messageReactionAddListener } from './src/listeners/message.js';
+import { guildMemberAddListener, guildMemberRemoveListener } from './src/listeners/guild.js';
+import { interactionListener } from './src/listeners/interaction.js';
 import fs from 'fs';
 import 'dotenv/config';
 
