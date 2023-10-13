@@ -7,6 +7,11 @@ export const Constants = {
         Secondary: 0x143d59,
         Error: 0xff0000,
     },
+
+    Link: {
+        Documentation: "https://github.com/cifrelabs/discord-bot-template#creating-a-command",
+        KoFi: "https://ko-fi.com/cifrelabs",
+    },
     
     Guild: {
         Categories: {

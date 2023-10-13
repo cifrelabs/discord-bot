@@ -1,5 +1,7 @@
 import { SlashCommandBuilder } from 'discord.js';
 import { successEmbed } from '../utils/embeds.js';
+import { ActionRowBuilder } from '@discordjs/builders';
+import { Buttons } from '../utils/buttons.js';
 
 /**
  * All of the information about the command
@@ -15,5 +17,7 @@ export const data = new SlashCommandBuilder()
  * @param {CommandInteraction} interaction - Represents a command interaction.
  */
 export const execute = async (interaction) => {
-    await interaction.reply({ embeds: [successEmbed] });
+    const buttons = new ActionRowBuilder().setComponents(Buttons.Documentation, Buttons.Support);
+
+    await interaction.reply({ embeds: [successEmbed], components: [buttons] });
 }
