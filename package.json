@@ -12,8 +12,8 @@
     "type": "git",
     "url": "git+https://github.com/cifrelabs/djs-template.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["Discord", "Discord.js", "Discord Bot", "Discord Bot Template"],
+  "author": "Cifre Labs",
   "license": "ISC",
   "dependencies": {
     "@discordjs/builders": "^1.6.3",
