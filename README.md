@@ -9,7 +9,7 @@ Creating a Discord Bot from scratch can be tedious. We made this template for ev
    - [dotenv](https://www.npmjs.com/package/dotenv)
 
 ## Quick Setup
-1. Create a `.env` file containing the following:
+1. Create a `.env` file containing the following (use the template provided):
 ```
 TOKEN = INSERT_BOT_TOKEN
 CLIENT_ID = INSERT_CLIENT_ID
@@ -34,8 +34,8 @@ CLIENT_ID = INSERT_CLIENT_ID
 2. Go back to your Discord Server where you added your bot, and try to run the command `/hello`.
 
 ## Creating a Command
-Each command is a separate `.js` file. All of the commands are located in [./src/commands/](https://github.com/cifrelabs/djs-template/tree/main/src/commands). You can use the already-included-sample-command file, [hello.js](https://github.com/cifrelabs/djs-template/blob/main/src/commands/hello.js), as a guide. To add choices to your slash command, refer to this [documentation](https://discordjs.guide/creating-your-bot/slash-commands.html#before-you-continue).
+Each command is a separate `.js` file. All of the commands are located in [./src/commands/](https://github.com/cifrelabs/discord-bot/tree/main/src/commands). You can use the already-included-sample-command file, [hello.js](https://github.com/cifrelabs/discord-bot/blob/main/src/commands/hello.js), as a guide. To add choices to your slash command, refer to this [documentation](https://discordjs.guide/creating-your-bot/slash-commands.html#before-you-continue).
 
 ## Reminders
-- We highly suggest to not write your program inside [index.js](https://github.com/cifrelabs/djs-template/blob/main/index.js) but instead create handlers for listeners for better organization. In our convention, we place these events in the [./src/listeners](https://github.com/cifrelabs/djs-template/tree/main/src/listeners) folder and in the [./src/handlers](https://github.com/cifrelabs/djs-template/tree/main/src/handlers) folder.
+- We highly suggest to not write your program inside [index.js](https://github.com/cifrelabs/discord-bot/blob/main/index.js) but instead create handlers for listeners for better organization. In our convention, we place these events in the [./src/listeners](https://github.com/cifrelabs/discord-bot/tree/main/src/listeners) folder and in the [./src/handlers](https://github.com/cifrelabs/discord-bot/tree/main/src/handlers) folder.
 - The `.env` file and tokens inside it are not meant to be pushed to the remote repository.

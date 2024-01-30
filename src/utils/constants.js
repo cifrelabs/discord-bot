@@ -9,7 +9,7 @@ export const Constants = {
     },
 
     Link: {
-        Documentation: "https://github.com/cifrelabs/discord-bot-template#creating-a-command",
+        Documentation: "https://github.com/cifrelabs/discord-bot#creating-a-command",
         KoFi: "https://ko-fi.com/cifrelabs",
     },
     

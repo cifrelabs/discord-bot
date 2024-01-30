@@ -1,6 +1,6 @@
 {
-  "name": "djs-template",
-  "version": "2.0.0",
+  "name": "discord-bot",
+  "version": "2.1.0",
   "description": "Creating a Discord Bot from scratch can be tedious. You may use this template to easily deploy discord bots.",
   "main": "index.js",
   "type": "module",
@@ -10,14 +10,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cifrelabs/djs-template.git"
+    "url": "git+https://github.com/cifrelabs/discord-bot.git"
   },
-  "keywords": ["Discord", "Discord.js", "Discord Bot", "Discord Bot Template"],
+  "keywords": [
+    "Discord",
+    "Discord.js",
+    "Discord Bot",
+    "Discord Bot Template"
+  ],
   "author": "Cifre Labs",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "@discordjs/builders": "^1.6.3",
-    "@discordjs/rest": "^1.7.1",
     "cron": "^1.8.2",
     "discord-api-types": "^0.37.36",
     "discord.js": "^14.11.0",

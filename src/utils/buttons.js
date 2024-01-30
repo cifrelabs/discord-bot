@@ -1,5 +1,4 @@
-import { ButtonBuilder } from "@discordjs/builders";
-import { ButtonStyle } from "discord.js";
+import { ButtonStyle, ButtonBuilder } from "discord.js";
 import { Constants } from "./constants.js";
 
 const { Link } = Constants;

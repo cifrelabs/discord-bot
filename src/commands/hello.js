@@ -1,6 +1,5 @@
-import { SlashCommandBuilder } from 'discord.js';
+import { SlashCommandBuilder, ActionRowBuilder } from 'discord.js';
 import { successEmbed } from '../utils/embeds.js';
-import { ActionRowBuilder } from '@discordjs/builders';
 import { Buttons } from '../utils/buttons.js';
 
 /**
